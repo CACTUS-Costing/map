@@ -22,13 +22,6 @@
 			attributionControl: false
 		});
 		_map.addControl(new NavigationControl({}), 'top-right');
-		_map.addControl(
-			new GeolocateControl({
-				positionOptions: { enableHighAccuracy: true },
-				trackUserLocation: true
-			}),
-			'top-right'
-		);
 
 		const { MaplibreExportControl, Size, PageOrientation, Format, DPI } = await import(
 			'@watergis/maplibre-gl-export'
