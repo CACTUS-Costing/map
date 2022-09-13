@@ -29,6 +29,20 @@
 			}),
 			'top-right'
 		);
+
+		const { MaplibreExportControl, Size, PageOrientation, Format, DPI } = await import(
+			'@watergis/maplibre-gl-export'
+		);
+		const exportControl = new MaplibreExportControl({
+			PageSize: Size.A4,
+			PageOrientation: PageOrientation.Landscape,
+			Format: Format.PNG,
+			DPI: DPI[96],
+			Crosshair: true,
+			PrintableArea: true
+		});
+		_map.addControl(exportControl, 'top-right');
+
 		_map.addControl(new ScaleControl({ maxWidth: 80, unit: 'metric' }), 'bottom-left');
 		_map.addControl(new AttributionControl({ compact: true }), 'bottom-right');
 
@@ -41,6 +55,7 @@
 
 <style>
 	@import 'maplibre-gl/dist/maplibre-gl.css';
+	@import '@watergis/maplibre-gl-export/css/styles.css';
 
 	.map {
 		position: absolute;
