@@ -8,14 +8,14 @@
 		AttributionControl
 	} from 'maplibre-gl';
 	import { map } from '$lib/stores';
-	import { variables } from '$lib/variables';
+	import Popup from './Popup.svelte';
 
 	let mapContainer: HTMLDivElement;
 
 	onMount(async () => {
 		const _map = new Map({
 			container: mapContainer,
-			style: `https://api.maptiler.com/maps/streets/style.json?key=${variables.VITE_MAPTILER_KEY}`,
+			style: `https://undp-data.github.io/style/style.json`,
 			center: [37.138, 0.414],
 			zoom: 6,
 			hash: true,
@@ -37,6 +37,7 @@
 </script>
 
 <div class="map" id="map" bind:this={mapContainer} />
+<Popup />
 
 <style>
 	@import 'maplibre-gl/dist/maplibre-gl.css';

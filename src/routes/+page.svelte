@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Map from '$lib/components/Map.svelte';
 
-	const title = 'Sveltekit Maplibre boilerplate';
+	const title = 'CACTUS data';
 </script>
 
 <sveltekit:head>
