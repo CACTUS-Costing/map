@@ -16,7 +16,7 @@ const config = {
 		}),
 		paths: {
 			// YOUR github repository name
-			base: process.env.NODE_ENV === 'production' ? '/cactus-map' : ''
+			base: process.env.NODE_ENV === 'production' ? '/map' : ''
 		}
 	}
 };

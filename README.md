@@ -1,4 +1,6 @@
-# svelte-maplibre-boilerplate
+# map
+
+This repository is to manage a simple maplibre website to map CACTUS project data
 
 This is a simple and smart boilerplate to integrate maplibre project by using sveltekit.
 
