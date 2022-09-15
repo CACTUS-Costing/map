@@ -1,12 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {
-		Map,
-		NavigationControl,
-		GeolocateControl,
-		ScaleControl,
-		AttributionControl
-	} from 'maplibre-gl';
+	import { Map, NavigationControl, ScaleControl, AttributionControl } from 'maplibre-gl';
 	import { map } from '$lib/stores';
 	import Popup from './Popup.svelte';
 
