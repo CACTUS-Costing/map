@@ -3,6 +3,7 @@
 	import { Map, NavigationControl, ScaleControl, AttributionControl } from 'maplibre-gl';
 	import { map } from '$lib/stores';
 	import Popup from './Popup.svelte';
+	// import '@watergis/maplibre-gl-export/dist/maplibre-gl-export.css';
 
 	let mapContainer: HTMLDivElement;
 
@@ -42,7 +43,7 @@
 
 <style>
 	@import 'maplibre-gl/dist/maplibre-gl.css';
-	@import '@watergis/maplibre-gl-export/css/styles.css';
+	@import '@watergis/maplibre-gl-export/dist/maplibre-gl-export.css';
 
 	.map {
 		position: absolute;
