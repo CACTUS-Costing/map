@@ -42,7 +42,7 @@
 
 <style>
 	@import 'maplibre-gl/dist/maplibre-gl.css';
-	@import '@watergis/maplibre-gl-export/css/styles.css';
+	@import '@watergis/maplibre-gl-export/dist/maplibre-gl-export.css';
 
 	.map {
 		position: absolute;
