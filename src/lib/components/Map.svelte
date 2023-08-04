@@ -1,13 +1,20 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { Map, NavigationControl, ScaleControl, AttributionControl } from 'maplibre-gl';
-	import { map } from '$lib/stores';
+	import { cactusStudyData, map } from '$lib/stores';
 	import Popup from './Popup.svelte';
 	import '@watergis/maplibre-gl-export/dist/maplibre-gl-export.css';
+	import { convert2geojson, getCactusStudyData } from '$lib/helpers';
+	import { config } from '../../config';
 
 	let mapContainer: HTMLDivElement;
 
 	onMount(async () => {
+		if (!$cactusStudyData) {
+			const data = await getCactusStudyData();
+			cactusStudyData.update(() => data);
+		}
+
 		const _map = new Map({
 			container: mapContainer,
 			style: `https://tiles.basemaps.cartocdn.com/gl/voyager-gl-style/style.json`,
@@ -33,6 +40,26 @@
 
 		_map.addControl(new ScaleControl({ maxWidth: 80, unit: 'metric' }), 'bottom-left');
 		_map.addControl(new AttributionControl({ compact: true }), 'bottom-right');
+
+		const geojson = await convert2geojson($cactusStudyData);
+
+		_map.addSource('cactus-data', {
+				type: 'geojson',
+				data: geojson,
+				attribution: config.attribution
+			});
+
+			_map.addLayer({
+				id: 'cactus-data',
+				type: 'circle',
+				source: 'cactus-data',
+				paint: {
+					'circle-color': '#11b4da',
+					'circle-radius': 8,
+					'circle-stroke-width': 1,
+					'circle-stroke-color': '#fff'
+				}
+			});
 
 		map.update(() => _map);
 	});
