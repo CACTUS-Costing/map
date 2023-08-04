@@ -44,22 +44,22 @@
 		const geojson = await convert2geojson($cactusStudyData);
 
 		_map.addSource('cactus-data', {
-				type: 'geojson',
-				data: geojson,
-				attribution: config.attribution
-			});
+			type: 'geojson',
+			data: geojson,
+			attribution: config.attribution
+		});
 
-			_map.addLayer({
-				id: 'cactus-data',
-				type: 'circle',
-				source: 'cactus-data',
-				paint: {
-					'circle-color': '#11b4da',
-					'circle-radius': 8,
-					'circle-stroke-width': 1,
-					'circle-stroke-color': '#fff'
-				}
-			});
+		_map.addLayer({
+			id: 'cactus-data',
+			type: 'circle',
+			source: 'cactus-data',
+			paint: {
+				'circle-color': '#11b4da',
+				'circle-radius': 8,
+				'circle-stroke-width': 1,
+				'circle-stroke-color': '#fff'
+			}
+		});
 
 		map.update(() => _map);
 	});
