@@ -2,9 +2,7 @@
 	import maplibreglPkg from 'maplibre-gl';
 	const { Popup } = maplibreglPkg;
 	import type { GeoJSONFeature, MapMouseEvent } from 'maplibre-gl';
-	import { map, cactusStudyData } from '$lib/stores';
-	import { getCactusStudyData } from '$lib/helpers';
-	import { config } from '../../config';
+	import { map } from '$lib/stores';
 
 	let popupContainer: HTMLDivElement;
 	let clickedFeatures: GeoJSONFeature[] = [];
@@ -12,26 +10,6 @@
 
 	$: if ($map) {
 		$map.on('load', async function () {
-			const geojson = await convert2geojson();
-
-			$map.addSource('cactus-data', {
-				type: 'geojson',
-				data: geojson,
-				attribution: config.attribution
-			});
-
-			$map.addLayer({
-				id: 'cactus-data',
-				type: 'circle',
-				source: 'cactus-data',
-				paint: {
-					'circle-color': '#11b4da',
-					'circle-radius': 8,
-					'circle-stroke-width': 1,
-					'circle-stroke-color': '#fff'
-				}
-			});
-
 			$map.on('click', 'cactus-data', function (e: MapMouseEvent) {
 				const features = $map.queryRenderedFeatures(e.point, {
 					layers: ['cactus-data']
@@ -49,33 +27,6 @@
 			});
 		});
 	}
-
-	const convert2geojson = async () => {
-		if (!$cactusStudyData) {
-			const data = await getCactusStudyData();
-			cactusStudyData.update(() => data);
-		}
-
-		const features: GeoJSONFeature[] = [];
-
-		$cactusStudyData.forEach((study) => {
-			const master = study.master;
-
-			const feature = {
-				id: master.datapoint_id,
-				type: 'Feature',
-				geometry: { type: 'Point', coordinates: [Number(master.lon), Number(master.lat)] },
-				properties: master
-			};
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
-			features.push(feature);
-		});
-		return {
-			type: 'FeatureCollection',
-			features: features
-		};
-	};
 </script>
 
 <div bind:this={popupContainer}>
