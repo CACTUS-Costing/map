@@ -1,22 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_page.0e5820cd.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.ba0fe3f7.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.5c3e1683.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.fb3efe29.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.7c7ae36f.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.4ffead26.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.41c905a7.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/layout.svelte.b1c888bc.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/_page.svelte.bc966266.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/_page.f32c273b.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/_page.ts.9c5eea7e.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/_page.da46b06b.js">
+		
+		<link href="./_app/immutable/assets/2.40555817.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.3f5899a5.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.b95eede2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.cc6bf48f.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.b98c768a.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.c70519d1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.a4192956.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.19f48283.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.d200ac08.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.9acc8cb8.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/2.ce7e58d4.js">
 	</head>
 	<style type="text/css">
 		html,
@@ -29,32 +28,24 @@
 		}
 	</style>
 	<body>
-		<div>
-
-
-<sveltekit:head><title>CACTUS data</title></sveltekit:head>
-
-<div><div class="map svelte-1c6zp8p" id="map"></div>
-<div>
-</div></div>
-
-
+		<div>  <sveltekit:head><title>CACTUS data</title></sveltekit:head> <div><div class="map svelte-dis1da" id="map"></div> <div> </div></div> 
 			
 			<script>
 				{
-					__sveltekit_1jdxf04 = {
-						env: {},
+					__sveltekit_180srsi = {
 						base: new URL(".", location).pathname.slice(0, -1),
-						element: document.currentScript.parentElement
+						env: {}
 					};
+
+					const element = document.currentScript.parentElement;
 
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.ba0fe3f7.js"),
-						import("./_app/immutable/entry/app.4ffead26.js")
+						import("./_app/immutable/entry/start.3f5899a5.js"),
+						import("./_app/immutable/entry/app.c70519d1.js")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_1jdxf04.element, {
+						kit.start(app, element, {
 							node_ids: [0, 2],
 							data,
 							form: null,
