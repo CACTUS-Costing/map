@@ -7,6 +7,9 @@ on:
   push:
     branches: [main]
   pull_request:
+  # run this workflow every day to update CACTUS data
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   build:
@@ -27,6 +30,8 @@ jobs:
           npm ci
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Download CACTUS data
+        run: ./update_cactus_data.sh
       - name: lint, format & build
         run: |
           npm run lint

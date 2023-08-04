@@ -31,6 +31,18 @@ Add your own API key `VITE_MAPTILER_KEY` for maptiler. The key can be created at
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
+Then, please download CACTUS datasets from the official API by using the following script.
+
+```bash
+./update_cactus_data.sh
+
+or
+
+curl -L http://cactuscosting.com/cactus-calcs/pull_cactus_json_app_json.php -o ./static/cactus-data.json
+```
+
+After than, you can use the following command to start developing.
+
 ```bash
 npm run dev
 
